@@ -19,11 +19,11 @@ text-align:center;
 }
 
 header{
-padding:30px;
+padding:30px 20px;
 }
 
 h1{
-font-size:56px;
+font-size:52px;
 margin-bottom:10px;
 }
 
@@ -62,10 +62,18 @@ button:hover{
 background:#115e59;
 }
 
+#message{
+font-style:italic;
+font-size:18px;
+margin:20px 0;
+color:#0f766e;
+font-weight:bold;
+}
+
 .certificate{
 border:3px solid #111827;
 border-radius:15px;
-padding:20px;
+padding:25px;
 margin-top:20px;
 }
 
@@ -76,30 +84,35 @@ letter-spacing:2px;
 margin:15px;
 }
 
+.small{
+font-size:14px;
+color:#555;
+}
+
 #qrcode{
 display:flex;
 justify-content:center;
 margin:20px;
 }
 
-.small{
-font-size:14px;
-color:#555;
+.links{
+margin-top:25px;
 }
 
 .links a{
 display:inline-block;
 margin:10px;
+font-weight:bold;
 text-decoration:none;
 color:#0f766e;
-font-weight:bold;
 }
 
-#funnyMessage{
-font-style:italic;
-margin-top:10px;
-color:#0f766e;
-font-weight:bold;
+.uses{
+margin-top:30px;
+text-align:left;
+max-width:450px;
+margin-left:auto;
+margin-right:auto;
 }
 
 footer{
@@ -129,10 +142,13 @@ box-shadow:none;
 <body>
 
 <header>
+
 <h1>WhoAmI</h1>
+
 <div class="tagline">
 Your friendly anonymous identity certificate.
 </div>
+
 </header>
 
 <div class="container">
@@ -141,16 +157,17 @@ Your friendly anonymous identity certificate.
 
 <h2>Create Your Anonymous Identity</h2>
 
-<button onclick="generateID()">
+<button class="no-print" onclick="generateID()">
 Generate New Identity
 </button>
 
-<button onclick="window.print()">
+<button class="no-print" onclick="window.print()">
 Download / Print Certificate
 </button>
 
-<div id="funnyMessage">
-You exist. Probably.
+<div id="message">
+Your own WhoAmI ID is shown below.<br>
+An informal ID useful for many things.
 </div>
 
 <div class="certificate">
@@ -201,9 +218,26 @@ Would you like to know more about me?
 
 <br>
 
-<a href="luggage.html">
-Luggage Tag Version
+<a href="tag.html">
+Tags for luggage, pets, keys and more
 </a>
+
+</div>
+
+<div class="uses">
+
+<h3>Possible Uses</h3>
+
+<ul>
+<li>Luggage tags</li>
+<li>Pet collars</li>
+<li>Keys and keyrings</li>
+<li>Event badges</li>
+<li>Emergency contact cards</li>
+<li>Social profiles</li>
+<li>Family history pages</li>
+<li>Memorial pages</li>
+</ul>
 
 </div>
 
@@ -216,24 +250,6 @@ WhoAmI © 2026
 </footer>
 
 <script>
-
-const funnyMessages = [
-
-"You exist. Probably.",
-
-"Congratulations. You are now someone else.",
-
-"Identity successfully anonymised.",
-
-"Your previous self has been archived.",
-
-"Reality has been updated.",
-
-"You are officially mysterious.",
-
-"No one knows who you are. Including us."
-
-];
 
 function generateID(){
 
@@ -258,23 +274,15 @@ const cert=
 
 document.getElementById("certNumber").innerHTML=cert;
 
-const today=new Date();
-
 document.getElementById("issueDate").innerHTML=
-today.toDateString();
-
-document.getElementById("funnyMessage").innerHTML=
-funnyMessages[
-Math.floor(Math.random()*funnyMessages.length)
-];
+new Date().toDateString();
 
 document.getElementById("qrcode").innerHTML="";
 
 new QRCode(
 document.getElementById("qrcode"),
 {
-text:
-window.location.href+"#"+id,
+text:window.location.href+"#"+id,
 width:160,
 height:160
 }
