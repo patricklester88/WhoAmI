@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhoAmI — Anonymous ID Certificate</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #111827, #1e3a8a, #0f766e);
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      padding: 50px 20px 30px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .box {
+      background: white;
+      color: #111827;
+      max-width: 650px;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    button {
+      background: #0f766e;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    button:hover {
+      background: #115e59;
+    }
+
+    #whoamiId {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 20px 0;
+      letter-spacing: 2px;
+    }
+
+    #qrcode {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    .certificate {
+      border: 3px solid #111827;
+      padding: 25px;
+      margin-top: 20px;
+      border-radius: 12px;
+      background: #f9fafb;
+    }
+
+    .levels {
+      text-align: left;
+      max-width: 500px;
+      margin: 20px auto;
+      line-height: 1.7;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 30px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+
+      header, section, footer, .no-print {
+        display: none;
+      }
+
+      .box {
+        box-shadow: none;
+        margin: 0;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>WhoAmI</h1>
+    <p class="tagline">Your friendly anonymous identity certificate.</p>
+  </header>
+
+  <div class="box">
+    <h2>Generate Your Anonymous ID</h2>
+    <p>Click below to create a simple anonymous WhoAmI identity.</p>
+
+    <button class="no-print" onclick="generateID()">Generate WhoAmI ID</button>
+
+    <div class="certificate">
+      <h2>WhoAmI Certificate</h2>
+      <p>This certifies that the holder is known anonymously as:</p>
+
+      <div id="whoamiId">WHOAMI-000000</div>
+
+      <p><strong>Proof Level:</strong> Level 1 — Self-certified</p>
+
+      <div id="qrcode"></div>
+
+      <p>This certificate does not reveal your real name.</p>
+      <p>It simply says: “I exist, probably.”</p>
+    </div>
+
+    <button class="no-print" onclick="window.print()">Print / Save Certificate</button>
+  </div>
+
+  <section>
+    <h2>What is WhoAmI?</h2>
+    <p>
+      WhoAmI is a simple anonymous identity idea. You can create a unique ID,
+      print it, save it, or share it using a QR code.
+    </p>
+    <p>
+      It can be used for fun, introductions, luggage labels, anonymous contact cards,
+      family history pages, memorial pages, or future verified profiles.
+    </p>
+  </section>
+
+  <section>
+    <h2>Proof Levels</h2>
+    <div class="levels">
+      <p><strong>Level 1:</strong> Self-certified — you say you are you.</p>
+      <p><strong>Level 2:</strong> Witnessed — someone else confirms they know you.</p>
+      <p><strong>Level 3:</strong> Verified — stronger identity checks may be added later.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Privacy</h2>
+    <p>
+      This first version does not store personal information. The ID is generated
+      in your browser. No account is required.
+    </p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>
+      This is an early experimental version of WhoAmI.
+    </p>
+    <p>
+      Future versions may include profiles, QR contact pages, printed cards,
+      luggage tags and verified identity options.
+    </p>
+  </section>
+
+  <footer>
+    WhoAmI © 2026 — Anonymous, but not entirely pointless.
+  </footer>
+
+  <script>
+    let qr;
+
+    function generateID() {
+      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+      let id = "WHOAMI-";
+
+      for (let i = 0; i < 6; i++) {
+        id += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+
+      document.getElementById("whoamiId").textContent = id;
+
+      const qrText = window.location.href.split("#")[0] + "#" + id;
+
+      document.getElementById("qrcode").innerHTML = "";
+
+      qr = new QRCode(document.getElementById("qrcode"), {
+        text: qrText,
+        width: 160,
+        height: 160
+      });
+    }
+
+    generateID();
+  </script>
+
+</body>
+</html>
