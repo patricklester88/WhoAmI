@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhoAmI Tags - Luggage, Pets, Keys and More</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:linear-gradient(135deg,#101827,#1e3a8a,#0f766e);
+color:white;
+text-align:center;
+}
+
+header{
+padding:35px 20px;
+}
+
+h1{
+font-size:46px;
+margin-bottom:10px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:white;
+color:#111827;
+border-radius:20px;
+padding:30px;
+margin:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.tagbox{
+border:3px solid #111827;
+border-radius:15px;
+padding:25px;
+margin:25px auto;
+max-width:520px;
+background:#f9fafb;
+}
+
+.big{
+font-size:30px;
+font-weight:bold;
+}
+
+.id{
+font-size:28px;
+font-weight:bold;
+letter-spacing:2px;
+margin:15px 0;
+}
+
+.note{
+font-size:18px;
+line-height:1.6;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-top:25px;
+}
+
+.use{
+background:#eef2ff;
+border-radius:14px;
+padding:18px;
+}
+
+a{
+color:#0f766e;
+font-weight:bold;
+text-decoration:none;
+}
+
+button{
+background:#0f766e;
+color:white;
+border:none;
+padding:14px 24px;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+margin:10px;
+}
+
+button:hover{
+background:#115e59;
+}
+
+footer{
+padding:30px;
+}
+
+@media print{
+body{
+background:white;
+color:black;
+}
+.no-print{
+display:none;
+}
+.card{
+box-shadow:none;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>WhoAmI Tags</h1>
+<p>Luggage tags, pet collars, keys, bags and more.</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>If found, scan the QR code</h2>
+
+<p class="note">
+A WhoAmI ID lets people contact you informally and safely without needing to print your full name, home address or private details on the item.
+</p>
+
+<div class="tagbox">
+
+<div class="big">FOUND THIS?</div>
+
+<p>Please scan the QR code or quote this WhoAmI ID:</p>
+
+<div class="id">WHOAMI-TAG-7K2P9</div>
+
+<p>
+This item belongs to someone who would probably like it back.
+</p>
+
+<p>
+Please contact the owner using their WhoAmI page.
+</p>
+
+</div>
+
+<button onclick="window.print()" class="no-print">
+Print Tag Example
+</button>
+
+<h2>Possible Tag Uses</h2>
+
+<div class="grid">
+
+<div class="use">
+<h3>🧳 Luggage</h3>
+<p>For suitcases, travel bags and hand luggage.</p>
+</div>
+
+<div class="use">
+<h3>🐶 Pet Collars</h3>
+<p>For dogs, cats and other adventurous escape artists.</p>
+</div>
+
+<div class="use">
+<h3>🔑 Keys</h3>
+<p>For keyrings without exposing your home address.</p>
+</div>
+
+<div class="use">
+<h3>🎒 School Bags</h3>
+<p>For children’s bags, lunch boxes and sports kits.</p>
+</div>
+
+<div class="use">
+<h3>👓 Spectacles Cases</h3>
+<p>For glasses, cases and optical items.</p>
+</div>
+
+<div class="use">
+<h3>🚲 Equipment</h3>
+<p>For bikes, tools, walking sticks or mobility items.</p>
+</div>
+
+</div>
+
+<br>
+
+<p>
+<a href="index.html">Back to WhoAmI Certificate</a>
+</p>
+
+</div>
+
+</div>
+
+<footer>
+WhoAmI © 2026 — informal IDs for everyday things.
+</footer>
+
+</body>
+</html>
