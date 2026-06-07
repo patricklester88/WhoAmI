@@ -1,220 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WhoAmI — Anonymous ID Certificate</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<title>WhoAmI - Anonymous Identity Certificate</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #111827, #1e3a8a, #0f766e);
-      color: white;
-      text-align: center;
-    }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-    header {
-      padding: 50px 20px 30px;
-    }
+<style>
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:linear-gradient(135deg,#101827,#1e3a8a,#0f766e);
+color:white;
+text-align:center;
+}
 
-    .tagline {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
+header{
+padding:30px;
+}
 
-    .box {
-      background: white;
-      color: #111827;
-      max-width: 650px;
-      margin: 30px auto;
-      padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    }
+h1{
+font-size:56px;
+margin-bottom:10px;
+}
 
-    button {
-      background: #0f766e;
-      color: white;
-      border: none;
-      padding: 14px 24px;
-      font-size: 1rem;
-      border-radius: 10px;
-      cursor: pointer;
-      margin: 10px;
-    }
+.tagline{
+font-size:20px;
+opacity:0.9;
+}
 
-    button:hover {
-      background: #115e59;
-    }
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
 
-    #whoamiId {
-      font-size: 2rem;
-      font-weight: bold;
-      margin: 20px 0;
-      letter-spacing: 2px;
-    }
+.card{
+background:white;
+color:#111827;
+border-radius:20px;
+padding:30px;
+margin:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
 
-    #qrcode {
-      display: flex;
-      justify-content: center;
-      margin: 20px;
-    }
+button{
+background:#0f766e;
+color:white;
+border:none;
+padding:14px 24px;
+margin:8px;
+border-radius:10px;
+cursor:pointer;
+font-size:16px;
+}
 
-    .certificate {
-      border: 3px solid #111827;
-      padding: 25px;
-      margin-top: 20px;
-      border-radius: 12px;
-      background: #f9fafb;
-    }
+button:hover{
+background:#115e59;
+}
 
-    .levels {
-      text-align: left;
-      max-width: 500px;
-      margin: 20px auto;
-      line-height: 1.7;
-    }
+.certificate{
+border:3px solid #111827;
+border-radius:15px;
+padding:20px;
+margin-top:20px;
+}
 
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-    }
+#whoamiId{
+font-size:48px;
+font-weight:bold;
+letter-spacing:2px;
+margin:15px;
+}
 
-    footer {
-      padding: 30px;
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
+#qrcode{
+display:flex;
+justify-content:center;
+margin:20px;
+}
 
-    @media print {
-      body {
-        background: white;
-        color: black;
-      }
+.small{
+font-size:14px;
+color:#555;
+}
 
-      header, section, footer, .no-print {
-        display: none;
-      }
+.links a{
+display:inline-block;
+margin:10px;
+text-decoration:none;
+color:#0f766e;
+font-weight:bold;
+}
 
-      .box {
-        box-shadow: none;
-        margin: 0;
-        max-width: 100%;
-      }
-    }
-  </style>
+#funnyMessage{
+font-style:italic;
+margin-top:10px;
+color:#0f766e;
+font-weight:bold;
+}
+
+footer{
+padding:30px;
+}
+
+@media print{
+
+body{
+background:white;
+color:black;
+}
+
+.no-print{
+display:none;
+}
+
+.card{
+box-shadow:none;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>WhoAmI</h1>
-    <p class="tagline">Your friendly anonymous identity certificate.</p>
-  </header>
+<header>
+<h1>WhoAmI</h1>
+<div class="tagline">
+Your friendly anonymous identity certificate.
+</div>
+</header>
 
-  <div class="box">
-    <h2>Generate Your Anonymous ID</h2>
-    <p>Click below to create a simple anonymous WhoAmI identity.</p>
+<div class="container">
 
-    <button class="no-print" onclick="generateID()">Generate WhoAmI ID</button>
+<div class="card">
 
-    <div class="certificate">
-      <h2>WhoAmI Certificate</h2>
-      <p>This certifies that the holder is known anonymously as:</p>
+<h2>Create Your Anonymous Identity</h2>
 
-      <div id="whoamiId">WHOAMI-000000</div>
+<button onclick="generateID()">
+Generate New Identity
+</button>
 
-      <p><strong>Proof Level:</strong> Level 1 — Self-certified</p>
+<button onclick="window.print()">
+Download / Print Certificate
+</button>
 
-      <div id="qrcode"></div>
+<div id="funnyMessage">
+You exist. Probably.
+</div>
 
-      <p>This certificate does not reveal your real name.</p>
-      <p>It simply says: “I exist, probably.”</p>
-    </div>
+<div class="certificate">
 
-    <button class="no-print" onclick="window.print()">Print / Save Certificate</button>
-  </div>
+<h2>WhoAmI Certificate</h2>
 
-  <section>
-    <h2>What is WhoAmI?</h2>
-    <p>
-      WhoAmI is a simple anonymous identity idea. You can create a unique ID,
-      print it, save it, or share it using a QR code.
-    </p>
-    <p>
-      It can be used for fun, introductions, luggage labels, anonymous contact cards,
-      family history pages, memorial pages, or future verified profiles.
-    </p>
-  </section>
+<div class="small">
+Certificate Number:
+<span id="certNumber"></span>
+</div>
 
-  <section>
-    <h2>Proof Levels</h2>
-    <div class="levels">
-      <p><strong>Level 1:</strong> Self-certified — you say you are you.</p>
-      <p><strong>Level 2:</strong> Witnessed — someone else confirms they know you.</p>
-      <p><strong>Level 3:</strong> Verified — stronger identity checks may be added later.</p>
-    </div>
-  </section>
+<div class="small">
+Issued:
+<span id="issueDate"></span>
+</div>
 
-  <section>
-    <h2>Privacy</h2>
-    <p>
-      This first version does not store personal information. The ID is generated
-      in your browser. No account is required.
-    </p>
-  </section>
+<p>
+This certifies that the holder is known anonymously as:
+</p>
 
-  <section>
-    <h2>Contact</h2>
-    <p>
-      This is an early experimental version of WhoAmI.
-    </p>
-    <p>
-      Future versions may include profiles, QR contact pages, printed cards,
-      luggage tags and verified identity options.
-    </p>
-  </section>
+<div id="whoamiId">
+WHOAMI-XXXXXX
+</div>
 
-  <footer>
-    WhoAmI © 2026 — Anonymous, but not entirely pointless.
-  </footer>
+<p>
+<strong>Proof Level:</strong>
+Level 1 — Self-certified
+</p>
 
-  <script>
-    let qr;
+<div id="qrcode"></div>
 
-    function generateID() {
-      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-      let id = "WHOAMI-";
+<p>
+This certificate does not reveal your real name.
+</p>
 
-      for (let i = 0; i < 6; i++) {
-        id += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
+<p>
+It simply says:
+"I exist, probably."
+</p>
 
-      document.getElementById("whoamiId").textContent = id;
+</div>
 
-      const qrText = window.location.href.split("#")[0] + "#" + id;
+<div class="links">
 
-      document.getElementById("qrcode").innerHTML = "";
+<a href="profile.html">
+Would you like to know more about me?
+</a>
 
-      qr = new QRCode(document.getElementById("qrcode"), {
-        text: qrText,
-        width: 160,
-        height: 160
-      });
-    }
+<br>
 
-    generateID();
-  </script>
+<a href="luggage.html">
+Luggage Tag Version
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+WhoAmI © 2026
+</footer>
+
+<script>
+
+const funnyMessages = [
+
+"You exist. Probably.",
+
+"Congratulations. You are now someone else.",
+
+"Identity successfully anonymised.",
+
+"Your previous self has been archived.",
+
+"Reality has been updated.",
+
+"You are officially mysterious.",
+
+"No one knows who you are. Including us."
+
+];
+
+function generateID(){
+
+const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+let id="WHOAMI-";
+
+for(let i=0;i<6;i++){
+
+id+=chars.charAt(
+Math.floor(Math.random()*chars.length)
+);
+
+}
+
+document.getElementById("whoamiId").innerHTML=id;
+
+const cert=
+"2026-"+Math.floor(
+100000+Math.random()*900000
+);
+
+document.getElementById("certNumber").innerHTML=cert;
+
+const today=new Date();
+
+document.getElementById("issueDate").innerHTML=
+today.toDateString();
+
+document.getElementById("funnyMessage").innerHTML=
+funnyMessages[
+Math.floor(Math.random()*funnyMessages.length)
+];
+
+document.getElementById("qrcode").innerHTML="";
+
+new QRCode(
+document.getElementById("qrcode"),
+{
+text:
+window.location.href+"#"+id,
+width:160,
+height:160
+}
+);
+
+}
+
+generateID();
+
+</script>
 
 </body>
 </html>
