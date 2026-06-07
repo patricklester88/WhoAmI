@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhoAmI Tags - Luggage, Pets, Keys and More</title>
+<title>WhoAmI Tags</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 <style>
 body{
@@ -14,20 +16,9 @@ color:white;
 text-align:center;
 }
 
-header{
-padding:35px 20px;
-}
+header{padding:35px 20px;}
 
-h1{
-font-size:46px;
-margin-bottom:10px;
-}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
-}
+.container{max-width:900px;margin:auto;padding:20px;}
 
 .card{
 background:white;
@@ -36,6 +27,17 @@ border-radius:20px;
 padding:30px;
 margin:20px;
 box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+button{
+background:#0f766e;
+color:white;
+border:none;
+padding:14px 24px;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+margin:10px;
 }
 
 .tagbox{
@@ -47,10 +49,7 @@ max-width:520px;
 background:#f9fafb;
 }
 
-.big{
-font-size:30px;
-font-weight:bold;
-}
+.big{font-size:32px;font-weight:bold;}
 
 .id{
 font-size:28px;
@@ -59,9 +58,10 @@ letter-spacing:2px;
 margin:15px 0;
 }
 
-.note{
-font-size:18px;
-line-height:1.6;
+#qrcode{
+display:flex;
+justify-content:center;
+margin:20px;
 }
 
 .grid{
@@ -83,36 +83,12 @@ font-weight:bold;
 text-decoration:none;
 }
 
-button{
-background:#0f766e;
-color:white;
-border:none;
-padding:14px 24px;
-border-radius:10px;
-font-size:16px;
-cursor:pointer;
-margin:10px;
-}
-
-button:hover{
-background:#115e59;
-}
-
-footer{
-padding:30px;
-}
+footer{padding:30px;}
 
 @media print{
-body{
-background:white;
-color:black;
-}
-.no-print{
-display:none;
-}
-.card{
-box-shadow:none;
-}
+body{background:white;color:black;}
+.no-print{display:none;}
+.card{box-shadow:none;margin:0;}
 }
 </style>
 </head>
@@ -121,18 +97,20 @@ box-shadow:none;
 
 <header>
 <h1>WhoAmI Tags</h1>
-<p>Luggage tags, pet collars, keys, bags and more.</p>
+<p>Luggage, pets, keys, school bags and more.</p>
 </header>
 
 <div class="container">
-
 <div class="card">
 
 <h2>If found, scan the QR code</h2>
 
-<p class="note">
+<p>
 A WhoAmI ID lets people contact you informally and safely without needing to print your full name, home address or private details on the item.
 </p>
+
+<button class="no-print" onclick="generateTag()">Generate New Tag</button>
+<button class="no-print" onclick="window.print()">Print Tag</button>
 
 <div class="tagbox">
 
@@ -140,21 +118,15 @@ A WhoAmI ID lets people contact you informally and safely without needing to pri
 
 <p>Please scan the QR code or quote this WhoAmI ID:</p>
 
-<div class="id">WHOAMI-TAG-7K2P9</div>
+<div class="id" id="tagId">WHOAMI-TAG-XXXXXX</div>
 
-<p>
-This item belongs to someone who would probably like it back.
-</p>
+<div id="qrcode"></div>
 
-<p>
-Please contact the owner using their WhoAmI page.
-</p>
+<p>This item belongs to someone who would probably like it back.</p>
+
+<p><strong>Please use the WhoAmI ID to contact the owner safely.</strong></p>
 
 </div>
-
-<button onclick="window.print()" class="no-print">
-Print Tag Example
-</button>
 
 <h2>Possible Tag Uses</h2>
 
@@ -162,49 +134,71 @@ Print Tag Example
 
 <div class="use">
 <h3>🧳 Luggage</h3>
-<p>For suitcases, travel bags and hand luggage.</p>
+<p>Suitcases, travel bags and hand luggage.</p>
 </div>
 
 <div class="use">
 <h3>🐶 Pet Collars</h3>
-<p>For dogs, cats and other adventurous escape artists.</p>
+<p>Dogs, cats and other adventurous escape artists.</p>
 </div>
 
 <div class="use">
 <h3>🔑 Keys</h3>
-<p>For keyrings without exposing your home address.</p>
+<p>Keyrings without exposing your home address.</p>
 </div>
 
 <div class="use">
 <h3>🎒 School Bags</h3>
-<p>For children’s bags, lunch boxes and sports kits.</p>
+<p>Children’s bags, lunch boxes and sports kits.</p>
 </div>
 
 <div class="use">
 <h3>👓 Spectacles Cases</h3>
-<p>For glasses, cases and optical items.</p>
+<p>Glasses, cases and optical items.</p>
 </div>
 
 <div class="use">
 <h3>🚲 Equipment</h3>
-<p>For bikes, tools, walking sticks or mobility items.</p>
+<p>Bikes, tools, walking sticks and mobility items.</p>
 </div>
 
 </div>
 
 <br>
 
-<p>
-<a href="index.html">Back to WhoAmI Certificate</a>
-</p>
+<p><a href="index.html">Back to WhoAmI Certificate</a></p>
 
 </div>
-
 </div>
 
 <footer>
 WhoAmI © 2026 — informal IDs for everyday things.
 </footer>
+
+<script>
+function generateTag(){
+
+const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+let id="WHOAMI-TAG-";
+
+for(let i=0;i<6;i++){
+id+=chars.charAt(Math.floor(Math.random()*chars.length));
+}
+
+document.getElementById("tagId").innerHTML=id;
+
+document.getElementById("qrcode").innerHTML="";
+
+new QRCode(document.getElementById("qrcode"),{
+text:window.location.href+"#"+id,
+width:160,
+height:160
+});
+
+}
+
+generateTag();
+</script>
 
 </body>
 </html>
