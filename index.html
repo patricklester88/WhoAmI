@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>WhoAmI - Anonymous Identity Certificate</title>
+<title>WhoAmI - Informal Identity Certificates</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
@@ -19,7 +19,7 @@ text-align:center;
 }
 
 header{
-padding:30px 20px;
+padding:35px 20px;
 }
 
 h1{
@@ -29,11 +29,11 @@ margin-bottom:10px;
 
 .tagline{
 font-size:20px;
-opacity:0.9;
+opacity:0.95;
 }
 
 .container{
-max-width:900px;
+max-width:1000px;
 margin:auto;
 padding:20px;
 }
@@ -64,7 +64,7 @@ background:#115e59;
 
 #message{
 font-style:italic;
-font-size:18px;
+font-size:20px;
 margin:20px 0;
 color:#0f766e;
 font-weight:bold;
@@ -78,7 +78,7 @@ margin-top:20px;
 }
 
 #whoamiId{
-font-size:48px;
+font-size:52px;
 font-weight:bold;
 letter-spacing:2px;
 margin:15px;
@@ -101,18 +101,27 @@ margin-top:25px;
 
 .links a{
 display:inline-block;
-margin:10px;
-font-weight:bold;
+margin:8px;
+padding:10px 16px;
+background:#eef2ff;
+border-radius:10px;
 text-decoration:none;
+font-weight:bold;
 color:#0f766e;
 }
 
+.links a:hover{
+background:#dbeafe;
+}
+
 .uses{
-margin-top:30px;
+max-width:550px;
+margin:30px auto;
 text-align:left;
-max-width:450px;
-margin-left:auto;
-margin-right:auto;
+}
+
+.uses li{
+margin-bottom:10px;
 }
 
 footer{
@@ -132,6 +141,7 @@ display:none;
 
 .card{
 box-shadow:none;
+margin:0;
 }
 
 }
@@ -146,7 +156,7 @@ box-shadow:none;
 <h1>WhoAmI</h1>
 
 <div class="tagline">
-Your friendly anonymous identity certificate.
+Informal IDs, QR tags and profile pages.
 </div>
 
 </header>
@@ -155,7 +165,7 @@ Your friendly anonymous identity certificate.
 
 <div class="card">
 
-<h2>Create Your Anonymous Identity</h2>
+<h2>Create Your WhoAmI Identity</h2>
 
 <button class="no-print" onclick="generateID()">
 Generate New Identity
@@ -213,13 +223,15 @@ It simply says:
 <div class="links">
 
 <a href="profile.html">
-Would you like to know more about me?
+👤 Profile Page
 </a>
 
-<br>
-
 <a href="tag.html">
-Tags for luggage, pets, keys and more
+🏷️ QR Tags
+</a>
+
+<a href="store.html">
+🛒 Store
 </a>
 
 </div>
@@ -229,14 +241,14 @@ Tags for luggage, pets, keys and more
 <h3>Possible Uses</h3>
 
 <ul>
-<li>Luggage tags</li>
-<li>Pet collars</li>
-<li>Keys and keyrings</li>
-<li>Event badges</li>
-<li>Emergency contact cards</li>
-<li>Social profiles</li>
-<li>Family history pages</li>
-<li>Memorial pages</li>
+<li>🧳 Luggage tags</li>
+<li>🐶 Pet collars</li>
+<li>🔑 Keys and keyrings</li>
+<li>🎫 Event badges</li>
+<li>🚴 Emergency contact cards</li>
+<li>👤 Informal profile pages</li>
+<li>📖 Family history projects</li>
+<li>🕊 Memorial pages</li>
 </ul>
 
 </div>
@@ -246,7 +258,7 @@ Tags for luggage, pets, keys and more
 </div>
 
 <footer>
-WhoAmI © 2026
+WhoAmI © 2026 — helping people make contact informally and safely.
 </footer>
 
 <script>
