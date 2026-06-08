@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WhoAmI Contact Centre</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:linear-gradient(135deg,#101827,#1e3a8a,#0f766e);
+color:white;
+text-align:center;
+}
+
+header{
+padding:40px 20px;
+}
+
+.container{
+max-width:800px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:white;
+color:#111827;
+border-radius:20px;
+padding:30px;
+margin:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+input, textarea{
+width:100%;
+padding:12px;
+margin-top:8px;
+margin-bottom:20px;
+border-radius:8px;
+border:1px solid #ccc;
+box-sizing:border-box;
+font-size:16px;
+}
+
+button{
+background:#0f766e;
+color:white;
+border:none;
+padding:14px 24px;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#115e59;
+}
+
+a{
+color:#0f766e;
+font-weight:bold;
+text-decoration:none;
+}
+
+.note{
+font-size:18px;
+line-height:1.6;
+margin-bottom:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>WhoAmI Contact Centre</h1>
+
+<p>
+Send a message to a WhoAmI ID owner.
+</p>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<p class="note">
+
+WhoAmI helps people make contact informally and safely.
+
+Use this form if you have found a tagged item, pet, bag, keyring or other object carrying a WhoAmI ID.
+
+</p>
+
+<form
+action="https://formspree.io/f/maqzjwok"
+method="POST">
+
+<label><strong>WhoAmI ID</strong></label>
+
+<input
+type="text"
+name="WhoAmI ID"
+placeholder="WHOAMI-TAG-XXXXXX"
+required>
+
+<label><strong>Your Name</strong></label>
+
+<input
+type="text"
+name="Finder Name"
+placeholder="Your name">
+
+<label><strong>Your Email</strong></label>
+
+<input
+type="email"
+name="Finder Email"
+placeholder="your@email.com"
+required>
+
+<label><strong>Where was it found?</strong></label>
+
+<input
+type="text"
+name="Location Found"
+placeholder="Victoria Station">
+
+<label><strong>Message</strong></label>
+
+<textarea
+name="Message"
+rows="6"
+placeholder="I found your luggage..."
+required></textarea>
+
+<button type="submit">
+Send Message
+</button>
+
+</form>
+
+<br>
+
+<p>
+<a href="index.html">Back to WhoAmI</a>
+</p>
+
+</div>
+
+</div>
+
+</body>
+</html>
