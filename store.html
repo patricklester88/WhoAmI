@@ -42,22 +42,22 @@ box-shadow:0 10px 30px rgba(0,0,0,0.3);
 .intro{
 font-size:18px;
 line-height:1.6;
-max-width:750px;
+max-width:760px;
 margin:auto;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:18px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 margin-top:30px;
 }
 
 .product{
 background:#eef2ff;
-border-radius:16px;
-padding:22px;
 border:2px solid #dbeafe;
+border-radius:16px;
+padding:24px;
 }
 
 .product h3{
@@ -66,39 +66,48 @@ margin-bottom:10px;
 }
 
 .price{
+font-size:21px;
 font-weight:bold;
-font-size:20px;
 color:#0f766e;
 }
 
-.badge{
+.buy-btn{
 display:inline-block;
-background:#0f766e;
+background:#0070ba;
 color:white;
-padding:6px 12px;
-border-radius:20px;
-font-size:14px;
-margin:8px;
-}
-
-button{
-background:#0f766e;
-color:white;
-border:none;
-padding:13px 22px;
+padding:13px 24px;
 border-radius:10px;
-font-size:16px;
-cursor:pointer;
+text-decoration:none;
+font-weight:bold;
 margin-top:10px;
 }
 
-button:hover{
-background:#115e59;
+.buy-btn:hover{
+background:#005ea6;
 }
 
-a{
-color:#0f766e;
+.coming-soon{
+display:inline-block;
+background:#0f766e;
+color:white;
+padding:10px 18px;
+border-radius:20px;
+font-size:14px;
+margin-top:10px;
+}
+
+.links{
+margin-top:30px;
+}
+
+.links a{
+display:inline-block;
+margin:8px;
+padding:10px 16px;
+background:#eef2ff;
+border-radius:10px;
 font-weight:bold;
+color:#0f766e;
 text-decoration:none;
 }
 
@@ -112,73 +121,77 @@ padding:30px;
 
 <header>
 <h1>WhoAmI Store</h1>
-<p>Informal IDs, QR tags and certificates for everyday life.</p>
+<p>Informal IDs, contact tags and certificates for everyday life.</p>
 </header>
 
 <div class="container">
-
 <div class="card">
 
-<h2>Coming Soon</h2>
+<h2>Early Access Store</h2>
 
 <p class="intro">
-The WhoAmI Store will offer simple products that help people make contact informally and safely without printing private details such as full names, home addresses or personal information on everyday items.
+WhoAmI Tags help people contact you informally and safely without printing your full name, home address or private details on your luggage, pet collar, keys or personal belongings.
 </p>
 
 <div class="grid">
 
 <div class="product">
-<h3>🧳 Printed Luggage Tags</h3>
+<h3>🏷️ WhoAmI Contact Tag</h3>
 <p>
-QR luggage tags for suitcases, travel bags and hand luggage.
+A flexible contact tag with a unique WhoAmI ID and QR code.
 </p>
+<p>
+Suitable for luggage, keys, pets, bicycles, spectacles cases, business cards and personal belongings.
+</p>
+<p class="price">£4.99</p>
+<a href="https://www.paypal.com/ncp/payment/JVXLL7VV934AN" target="_blank" class="buy-btn">
+Buy Now £4.99
+</a>
+<p style="font-size:13px;">
+Secure payment via PayPal.
+</p>
+</div>
+
+<div class="product">
+<h3>🧳 Printed Luggage Tags</h3>
+<p>QR luggage tags for suitcases, travel bags and hand luggage.</p>
 <p class="price">Estimated price: £4.99–£9.99</p>
-<span class="badge">Coming soon</span>
+<span class="coming-soon">Coming soon</span>
 </div>
 
 <div class="product">
 <h3>🐶 Pet Collar Tags</h3>
-<p>
-QR tags for dogs, cats and other adventurous escape artists.
-</p>
+<p>QR contact tags for dogs, cats and adventurous escape artists.</p>
 <p class="price">Estimated price: £4.99–£8.99</p>
-<span class="badge">Coming soon</span>
+<span class="coming-soon">Coming soon</span>
 </div>
 
 <div class="product">
 <h3>💳 Emergency Contact Cards</h3>
-<p>
-Wallet-sized cards for travellers, walkers, cyclists and elderly relatives.
-</p>
+<p>Wallet-sized cards for travellers, walkers, cyclists and elderly relatives.</p>
 <p class="price">Estimated price: £3.99–£7.99</p>
-<span class="badge">Coming soon</span>
+<span class="coming-soon">Coming soon</span>
 </div>
 
 <div class="product">
 <h3>🎫 Event Badges</h3>
-<p>
-Informal QR badges for meetings, clubs, conferences and social events.
-</p>
+<p>Informal contact badges for meetings, clubs, conferences and social events.</p>
 <p class="price">Estimated price: from £1.99 each</p>
-<span class="badge">Coming soon</span>
+<span class="coming-soon">Coming soon</span>
 </div>
 
 <div class="product">
 <h3>📜 Premium Certificates</h3>
-<p>
-Better-looking printable WhoAmI certificates with optional designs and styles.
-</p>
+<p>Better-looking printable WhoAmI certificates with optional designs and styles.</p>
 <p class="price">Estimated price: £2.99</p>
-<span class="badge">Coming soon</span>
+<span class="coming-soon">Coming soon</span>
 </div>
 
 <div class="product">
 <h3>👤 Premium Profile Pages</h3>
-<p>
-Optional profile pages with biography, interests, photos and contact options.
-</p>
+<p>Optional profile pages with biography, interests, photos and contact options.</p>
 <p class="price">Estimated price: £10/year</p>
-<span class="badge">Coming soon</span>
+<span class="coming-soon">Coming soon</span>
 </div>
 
 </div>
@@ -186,17 +199,17 @@ Optional profile pages with biography, interests, photos and contact options.
 <h2>Why WhoAmI?</h2>
 
 <p class="intro">
-A normal luggage tag or pet tag often reveals too much personal information. A WhoAmI tag can show only an informal ID and QR code. The finder can make contact, but your private details do not need to be printed directly on the item.
+A normal luggage tag or pet tag can reveal too much personal information. A WhoAmI tag can show only an informal ID and QR code. The finder can make contact, but your private details do not need to be printed directly on the item.
 </p>
 
-<p>
-<a href="index.html">Back to WhoAmI Certificate</a>
-&nbsp; | &nbsp;
-<a href="tag.html">View Tag Examples</a>
-</p>
-
+<div class="links">
+<a href="index.html">🏠 Home</a>
+<a href="tag.html">🏷️ Contact Tags</a>
+<a href="contact.html">📨 Contact Centre</a>
+<a href="profile.html">👤 Profile</a>
 </div>
 
+</div>
 </div>
 
 <footer>
