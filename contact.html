@@ -35,15 +35,32 @@ margin:20px;
 box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-input, textarea{
+.note{
+font-size:18px;
+line-height:1.6;
+margin-bottom:25px;
+}
+
+label{
+display:block;
+text-align:left;
+margin-top:15px;
+font-weight:bold;
+}
+
+input,
+textarea{
 width:100%;
 padding:12px;
 margin-top:8px;
-margin-bottom:20px;
 border-radius:8px;
 border:1px solid #ccc;
 box-sizing:border-box;
 font-size:16px;
+}
+
+textarea{
+resize:vertical;
 }
 
 button{
@@ -54,22 +71,30 @@ padding:14px 24px;
 border-radius:10px;
 font-size:16px;
 cursor:pointer;
+margin-top:20px;
 }
 
 button:hover{
 background:#115e59;
 }
 
-a{
-color:#0f766e;
+.links{
+margin-top:25px;
+}
+
+.links a{
+display:inline-block;
+margin:8px;
+padding:10px 16px;
+background:#eef2ff;
+border-radius:10px;
 font-weight:bold;
+color:#0f766e;
 text-decoration:none;
 }
 
-.note{
-font-size:18px;
-line-height:1.6;
-margin-bottom:20px;
+footer{
+padding:30px;
 }
 
 </style>
@@ -96,7 +121,7 @@ Send a message to a WhoAmI ID owner.
 
 WhoAmI helps people make contact informally and safely.
 
-Use this form if you have found a tagged item, pet, bag, keyring or other object carrying a WhoAmI ID.
+Use this form if you have found a tagged item, pet, bag, keyring, spectacles case, bicycle or other object carrying a WhoAmI ID.
 
 </p>
 
@@ -104,22 +129,23 @@ Use this form if you have found a tagged item, pet, bag, keyring or other object
 action="https://formspree.io/f/maqzjwok"
 method="POST">
 
-<label><strong>WhoAmI ID</strong></label>
+<label>WhoAmI ID</label>
 
 <input
 type="text"
+id="whoamiid"
 name="WhoAmI ID"
 placeholder="WHOAMI-TAG-XXXXXX"
 required>
 
-<label><strong>Your Name</strong></label>
+<label>Your Name</label>
 
 <input
 type="text"
 name="Finder Name"
 placeholder="Your name">
 
-<label><strong>Your Email</strong></label>
+<label>Your Email</label>
 
 <input
 type="email"
@@ -127,14 +153,14 @@ name="Finder Email"
 placeholder="your@email.com"
 required>
 
-<label><strong>Where was it found?</strong></label>
+<label>Where was it found?</label>
 
 <input
 type="text"
 name="Location Found"
 placeholder="Victoria Station">
 
-<label><strong>Message</strong></label>
+<label>Message</label>
 
 <textarea
 name="Message"
@@ -143,20 +169,50 @@ placeholder="I found your luggage..."
 required></textarea>
 
 <button type="submit">
-Send Message
+📨 Send Message
 </button>
 
 </form>
 
-<br>
+<div class="links">
 
-<p>
-<a href="index.html">Back to WhoAmI</a>
-</p>
+<a href="index.html">
+🏠 Home
+</a>
+
+<a href="tag.html">
+🏷️ Tags
+</a>
+
+<a href="store.html">
+🛒 Store
+</a>
 
 </div>
 
 </div>
+
+</div>
+
+<footer>
+
+WhoAmI © 2026 — helping people make contact informally and safely.
+
+</footer>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const id = params.get("id");
+
+if(id){
+
+document.getElementById("whoamiid").value = id;
+
+}
+
+</script>
 
 </body>
 </html>
